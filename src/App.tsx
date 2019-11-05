@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <h2>Basic CI/CD React Frontend</h2>
+      <h2>Basic CI/CD React Frontend V4</h2>
       {users &&
         users.map((user: any) => (
           <li key={user.id}>
