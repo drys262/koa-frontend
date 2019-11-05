@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const App: React.FC = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const apiUrl =
+      process.env.REACT_APP_ENVIRONMENT === 'development'
+        ? 'http://api-dev.hov90901.tk/users'
+        : 'http://api-qa.hov90901.tk/users';
+    axios.get(apiUrl).then(response => setUsers(response.data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>Basic CI/CD React Frontend</h2>
+      {users &&
+        users.map((user: any) => (
+          <li key={user.id}>
+            <a href="###">{user.name}</a>
+          </li>
+        ))}
+    </>
   );
-}
+};
 
 export default App;
