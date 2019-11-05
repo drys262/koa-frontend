@@ -15,7 +15,7 @@ steps:
       - "-t"
       - "gcr.io/${PROJECT_ID}/koa-backend:${TAG_NAME}"
       - "-f"
-      - "../Dockerfile.qa"
+      - "Dockerfile.qa"
       - "."
 
   # Retrieve and decrypt the GitHub Hub configuration.

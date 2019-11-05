@@ -13,7 +13,7 @@ steps:
       - "-t"
       - "gcr.io/${PROJECT_ID}/koa-frontend:${SHORT_SHA}"
       - "-f"
-      - "../Dockerfile.development"
+      - "Dockerfile.development"
       - "."
 
   # Retrieve and decrypt the GitHub Hub configuration.
