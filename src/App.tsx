@@ -9,6 +9,8 @@ const App: React.FC = () => {
       process.env.REACT_APP_ENVIRONMENT === 'development'
         ? 'http://api-dev.hov90901.tk/users'
         : 'http://api-qa.hov90901.tk/users';
+    console.log('API URL HERE');
+    console.log(apiUrl);
     axios.get(apiUrl).then(response => setUsers(response.data));
   }, []);
 
